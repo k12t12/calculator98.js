@@ -47,12 +47,14 @@ function getNumbers(string) {
 }
 
 function executeSimpleExpression(input) {
+  //simple expression is expression without parantheses 
   let numbers = getNumbers(input);
   let operations = getOperations(input);
+  
   for (let i = 0; i < operations.length; i++) {
     let operation = operations[i];
-    value1 = numbers[operation.positionsOfValues[0]];
-    value2 = numbers[operation.positionsOfValues[1]];
+    let value1 = numbers[operation.positionsOfValues[0]];
+    let value2 = numbers[operation.positionsOfValues[1]];
     numbers[operation.positionsOfValues[0]] = simpleCalc(
       value1,
       value2,
@@ -73,8 +75,9 @@ function executeSimpleExpression(input) {
 }
 
 function executeComplexExpression(input) {
-  simpleExpressions = [];
-  for (i in input) {
+  let simpleExpressions = []; //simple expressions in parantheses
+
+  for (let i in input) {
     if (input[i] == "(") {
       let t = i * 1 + 1;
       let simpleExpression = "";
