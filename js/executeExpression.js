@@ -17,15 +17,18 @@ function getOperations(string) {
 
   for (let i = 0; i < string.length; i++) {
     if (isNaN(string[i]) && string[i] != ".") {
+      
       //check this is a operation symbol
       operations.push({
         symbol: string[i],
         prior: priorOfOperations[string[i]],
         positionsOfValues: [operations.length, operations.length + 1],
       });
+     
     }
   }
-  return operations.sort((a, b) => (a.prior > b.prior ? 1 : -1)); // sorting operations by priority
+   
+  return operations.sort((a, b) => a.prior - b.prior); // sorting operations by priority
 }
 
 function getNumbers(string) {
@@ -50,7 +53,6 @@ function executeSimpleExpression(input) {
   //simple expression is expression without parantheses 
   let numbers = getNumbers(input);
   let operations = getOperations(input);
-  
   for (let i = 0; i < operations.length; i++) {
     let operation = operations[i];
     let value1 = numbers[operation.positionsOfValues[0]];
@@ -63,6 +65,7 @@ function executeSimpleExpression(input) {
     numbers.splice(operation.positionsOfValues[1], 1);
 
     for (let t = 0; t < operations.length; t++) {
+
       if (
         operations[t].positionsOfValues[0] >= operation.positionsOfValues[1]
       ) {
@@ -71,6 +74,7 @@ function executeSimpleExpression(input) {
       }
     }
   }
+  
   return numbers[0];
 }
 
@@ -98,3 +102,5 @@ function executeComplexExpression(input) {
 
   return executeSimpleExpression(input);
 }
+console.log(executeSimpleExpression("3-3929+21/1/2/3/5"))
+export {executeSimpleExpression, executeComplexExpression};
