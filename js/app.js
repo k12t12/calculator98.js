@@ -6,6 +6,8 @@ let executeButton = document.getElementById('execute-button')
 let input = document.getElementById('input')
 let output = document.getElementById('output')
 
+console.log(executeComplexExpression('((1+1)+1)'))
+
 function checkIsExpressionFinished(expression) {
     if (expression[expression.length-1] === '+') { return false}
 

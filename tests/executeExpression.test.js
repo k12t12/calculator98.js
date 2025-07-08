@@ -22,7 +22,11 @@ describe("test for executeComplexExpression", () => {
     expect(executeComplexExpression("3+2-(22+12)")).toBe(3+2-(22+12));
   });
 
-  test("10*2+(41/53)+(414+32)/(42+2+3-0)", () => {
-    expect(executeComplexExpression("10*2+(41/53)+((414+32))/(42+2+3-0)")).toBe(10*2+(41/53)+(414+32)/(42+2+3-0));
+  test("10*2+(41/53)+((414+32))/(42+2+3-0)", () => {
+    expect(executeComplexExpression("10*2+(41/53)+((414+32))/(42+2+3-0)")).toBe(10*2+(41/53)+((414+32))/(42+2+3-0));
+  });
+
+  test("3+2/((22+1)/34+(233))-(22+12)", () => {
+    expect(executeComplexExpression("3+2/((21+1)/3+(2))-(22+12)")).toBe(3+2/((21+1)/3+(2))-(22+12));
   });
 });

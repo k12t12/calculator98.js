@@ -4,7 +4,7 @@ const priorOfOperations = {
   "/": 1,
   "*": 2,
 };
-
+const d = 0;
 function simpleCalc(a, b, op) {
   if (op == "+") return a + b;
   if (op == "-") return a - b;
@@ -17,17 +17,15 @@ function getOperations(string) {
 
   for (let i = 0; i < string.length; i++) {
     if (isNaN(string[i]) && string[i] != ".") {
-      
       //check this is a operation symbol
       operations.push({
         symbol: string[i],
         prior: priorOfOperations[string[i]],
         positionsOfValues: [operations.length, operations.length + 1],
       });
-     
     }
   }
-   
+
   return operations.sort((a, b) => a.prior - b.prior); // sorting operations by priority
 }
 
@@ -50,7 +48,7 @@ function getNumbers(string) {
 }
 
 function executeSimpleExpression(input) {
-  //simple expression is expression without parantheses 
+  //simple expression is expression without braces
   let numbers = getNumbers(input);
   let operations = getOperations(input);
   for (let i = 0; i < operations.length; i++) {
@@ -65,7 +63,6 @@ function executeSimpleExpression(input) {
     numbers.splice(operation.positionsOfValues[1], 1);
 
     for (let t = 0; t < operations.length; t++) {
-
       if (
         operations[t].positionsOfValues[0] >= operation.positionsOfValues[1]
       ) {
@@ -74,33 +71,53 @@ function executeSimpleExpression(input) {
       }
     }
   }
-  
+
   return numbers[0];
 }
 
 function executeComplexExpression(input) {
-  let simpleExpressions = []; //simple expressions in parantheses
+  let expressionsInBraces = []; // expressions in braces
 
   for (let i in input) {
     if (input[i] == "(") {
+      let count = 1;
       let t = i * 1 + 1;
-      let simpleExpression = "";
-      while (input[t] != ")") {
-        simpleExpression += input[t];
+      let expressionInBrace = "";
+
+      while (input[t] != ")" || count != 40) {
+        if (input[t] === "(") {
+          count++;
+        }
+        if (input[t] === ")") {
+          count--;
+        }
+        if (input[t] === ")" && count == 0) {
+          break;
+        }
+
+        expressionInBrace += input[t];
         t++;
       }
-      simpleExpressions.push(simpleExpression);
+
+      expressionsInBraces.push(expressionInBrace);
     }
   }
 
-  for (let i in simpleExpressions) {
-    input = input.replace(
-      "(" + simpleExpressions[i] + ")",
-      executeSimpleExpression(simpleExpressions[i])
-    );
+  for (let i in expressionsInBraces) {
+    if (expressionsInBraces[i].indexOf("(") != -1) {
+      input = input.replace(
+        "(" + expressionsInBraces[i] + ")",
+        executeComplexExpression(expressionsInBraces[i])
+      );
+    } else {
+      input = input.replace(
+        "(" + expressionsInBraces[i] + ")",
+        executeSimpleExpression(expressionsInBraces[i])
+      );
+    }
   }
 
   return executeSimpleExpression(input);
 }
 
-export {executeSimpleExpression, executeComplexExpression};
+export { executeSimpleExpression, executeComplexExpression };
