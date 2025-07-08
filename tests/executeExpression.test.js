@@ -23,6 +23,6 @@ describe("test for executeComplexExpression", () => {
   });
 
   test("10*2+(41/53)+(414+32)/(42+2+3-0)", () => {
-    expect(executeComplexExpression("10*2+(41/53)+(414+32)/(42+2+3-0)")).toBe(10*2+(41/53)+(414+32)/(42+2+3-0));
+    expect(executeComplexExpression("10*2+(41/53)+((414+32))/(42+2+3-0)")).toBe(10*2+(41/53)+(414+32)/(42+2+3-0));
   });
 });
