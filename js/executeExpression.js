@@ -4,7 +4,7 @@ const priorOfOperations = {
   "/": 1,
   "*": 2,
 };
-const d = 0;
+
 function simpleCalc(a, b, op) {
   if (op == "+") return a + b;
   if (op == "-") return a - b;
@@ -84,7 +84,7 @@ function executeComplexExpression(input) {
       let t = i * 1 + 1;
       let expressionInBrace = "";
 
-      while (input[t] != ")" || count != 40) {
+      while (true) {
         if (input[t] === "(") {
           count++;
         }
