@@ -9,6 +9,9 @@ let clearAllButton = document.getElementById("clear-all");
 let deleteButton = document.getElementById("delete");
 let input = document.getElementById("input");
 let output = document.getElementById("output");
+let styleObject = document.getElementById('style');
+let radioButtonsStyle = document.querySelectorAll('input[name="style"]');
+let options = document.getElementById('options-menu')
 
 function addToInput(symbol) {
   if (
@@ -18,6 +21,17 @@ function addToInput(symbol) {
   ) {
     input.innerHTML = "";
   }
+  if (
+    (".1234567890".indexOf(symbol) !== -1 &&
+      input.innerHTML[input.innerHTML.length - 1] === "0" &&
+      "+-/*".indexOf(input.innerHTML[input.innerHTML.length - 2]) !== -1) ||
+    (".1234567890".indexOf(symbol) !== -1 &&
+      input.innerHTML.length == 1 &&
+      input.innerHTML[input.innerHTML.length - 1] === "0")
+  ) {
+    return 0;
+  } //user can`t write digits after 0 at the beginning of the number
+
   if (symbol) {
     if (
       "+-/*.".indexOf(symbol) !== -1 &&
@@ -37,6 +51,7 @@ function addToInput(symbol) {
   }
 }
 
+//bind calculator events
 calculator.addEventListener("click", (e) => {
   if (e.target.id === "execute-button") {
     return 0;
@@ -83,3 +98,18 @@ executeButton.addEventListener("click", (e) => {
     output.innerHTML = "";
   }
 });
+const styles = {
+  'xp': 'https://unpkg.com/xp.css',
+  '7': 'https://unpkg.com/7.css',
+  '98': 'https://unpkg.com/98.css'
+}
+
+options.addEventListener("change", (e) => {
+  if (e.target.name === "style") {
+    if (e.target.checked) {
+      console.log(styles[e.target.value])
+      styleObject.href = styles[e.target.value]
+    }
+  }
+})
+

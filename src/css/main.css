@@ -1,0 +1,38 @@
+body {
+    margin-left: 44px;
+}
+body {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
+  background-image: url('../assets/clouds.jpg');
+  background-size: cover;
+}
+.calculator {
+    width: 460px;
+    height: 600px
+}
+.digit-buttons {
+    display: inline
+}
+.symbol-buttons {
+    display: inline;
+}
+.buttons-container {
+    margin-top: 8%;
+    margin-left: 6%;
+    margin-bottom: 6%;
+    
+}
+.output-input {
+    font-size: 20px;
+    height: 56px;
+    margin-top: 5%;
+    margin-left: 20px;
+}
+button {
+    font-size: 24px;
+    width: 130px;
+    height: 60px;
+}
