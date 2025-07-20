@@ -1,77 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>title</title> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
   <link id="style" rel="stylesheet" href="https://unpkg.com/xp.css">
   <link rel="stylesheet" href="src/css/main.css">
-  <script src="src/js/app.js" type = 'module'></script>
+  <script src="src/js/app.js" type="module"></script>
 </head>
 <body>
-  
+  <div class="background">
+    <div class="app">
+      <div id="calculator" class="window calculator">
+        <div class="title-bar">
+          <div class="title-bar-text">Calculator.js</div>
+        </div>
+        <div class="window-body">
+          <div class="output-input"> 
+            <div id="input"></div>
+            <div id="output"></div>
+          </div>
+          <div class="buttons-container">
+            <!-- digit buttons -->
+            <div class="digit-buttons" id="digit-buttons">
+              <button class="calculator-button" data-digit="1">1</button>
+              <button class="calculator-button" data-digit="2">2</button>
+              <button class="calculator-button" data-digit="3">3</button>
+              <button class="calculator-button" data-digit="4">4</button>
+              <button class="calculator-button" data-digit="5">5</button>
+              <button class="calculator-button" data-digit="6">6</button>
+              <button class="calculator-button" data-digit="7">7</button>
+              <button class="calculator-button" data-digit="8">8</button>
+              <button class="calculator-button" data-digit="9">9</button>
+              <button class="calculator-button" data-digit="0">0</button>
+            </div>
 
-  <div id = "calculator" class="window calculator">
-  <div class="title-bar">
-  <div class="title-bar-text">Calculator.js</div>
-  </div>
-  <div class="window-body">
-  <div class="output-input"> 
-  <div id = "input"></div>
-  <div id = "output"> </div>
-  </div>
-  <div class = 'buttons-container'>
-  <div class="digit-buttons" id = "digit-buttons">
-    <button class = 'calculator-button' data-digit = '1'> 1 </button>
-    <button class = 'calculator-button' data-digit = '2'> 2 </button>
-    <button class = 'calculator-button' data-digit = '3'> 3 </button>
-    <button class = 'calculator-button' data-digit = '4'> 4 </button>
-    <button class = 'calculator-button' data-digit = '5'> 5 </button>
-    <button class = 'calculator-button' data-digit = '6'> 6 </button>
-    <button class = 'calculator-button' data-digit = '7'> 7 </button>
-    <button class = 'calculator-button' data-digit = '8'> 8 </button>
-    <button class = 'calculator-button' data-digit = '9'> 9 </button>
-    <button class = 'calculator-button' data-digit = '0'> 0 </button>
-</div>
+            <!-- operations buttons -->
+            <div class="symbol-buttons" id="symbol-buttons">
+              <button class="calculator-button" data-symbol=".">.</button>
+              <button class="calculator-button" data-symbol="(">(</button>
+              <button class="calculator-button" data-symbol=")">)</button>
+              <button class="calculator-button" data-symbol="+">+</button>
+              <button class="calculator-button" data-symbol="-">-</button>
+              <button class="calculator-button" data-symbol="/">/</button>
+              <button class="calculator-button" data-symbol="*">*</button>
+            </div>
 
-  <div class="symbol-buttons" id="symbol-buttons">
-    <button class = 'calculator-button' data-symbol = "."> . </button>
-    <button class = 'calculator-button' data-symbol = "("> ( </button>
-    <button class = 'calculator-button' data-symbol = ")"> ) </button>
-    <button class = 'calculator-button' data-symbol = "+"> + </button>
-    <button class = 'calculator-button' data-symbol = "-"> - </button>
-    <button class = 'calculator-button' data-symbol = "/"> / </button>
-    <button class = 'calculator-button' data-symbol = "*"> * </button>
-  </div>
+            <!-- control buttons -->
+            <button class="calculator-button" id="execute-button">=</button>
+            <button class="calculator-button" id="clear-all">C</button>
+            <button class="calculator-button" id="delete">delete</button>
+          </div>
+        </div>
+      </div>
 
-  <button class = 'calculator-button' id = "execute-button"> = </button>
-  <button class = 'calculator-button' id = "clear-all"> C </button>
-  <button class = 'calculator-button' id = 'delete'> delete </button>
-  </div>
-  </div>
-</div>
-</div>
-
-<div class="window" id = "options-menu"> 
-    <div class="title-bar"> 
-    <div class="title-bar-text">Options.js</div>
+      <!-- options menu -->
+      <div class="window options" id="options-menu">
+        <div class="title-bar"> 
+          <div class="title-bar-text">Options.js</div>
+        </div>
+        <div class="window-body">
+          <fieldset> 
+            <legend>Style</legend>
+            <div>
+              <input type="radio" id="7" name="style" value="7">
+              <label for="7">Windows 7</label>
+            </div>
+            <div>
+              <input type="radio" id="98" name="style" value="98">
+              <label for="98">Windows 98</label>
+            </div>
+            <div>
+              <input type="radio" id="xp" name="style" value="xp">
+              <label for="xp">Windows XP</label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
     </div>
-    <div class="window-body">
-    <legend>style</legend>
-
-  <div>
-    <input type="radio" id="7" name="style" value="7" />
-    <label for="7">Windows 7</label>
-  </div>
-
-  <div>
-    <input type="radio" id="98" name="style" value="98" />
-    <label for="98">Windows 98</label>
-  </div>
-
-  <div>
-    <input type="radio" id="xp" name="style" value="xp" />
-    <label for="xp">Windows XP</label>
-  </div>
   </div>
 </body>
 </html>
