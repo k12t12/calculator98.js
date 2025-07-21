@@ -9,9 +9,13 @@ let clearAllButton = document.getElementById("clear-all");
 let deleteButton = document.getElementById("delete");
 let input = document.getElementById("input");
 let output = document.getElementById("output");
-let styleObject = document.getElementById('style');
-let radioButtonsStyle = document.querySelectorAll('input[name="style"]');
-let options = document.getElementById('options-menu')
+let styleObject = document.getElementById("style");
+let options = document.getElementById("options-menu");
+const styles = {
+  xp: "https://unpkg.com/xp.css",
+  7: "https://unpkg.com/7.css",
+  98: "https://unpkg.com/98.css",
+};
 
 function addToInput(symbol) {
   if (
@@ -98,18 +102,12 @@ executeButton.addEventListener("click", (e) => {
     output.innerHTML = "";
   }
 });
-const styles = {
-  'xp': 'https://unpkg.com/xp.css',
-  '7': 'https://unpkg.com/7.css',
-  '98': 'https://unpkg.com/98.css'
-}
 
 options.addEventListener("change", (e) => {
   if (e.target.name === "style") {
     if (e.target.checked) {
-      console.log(styles[e.target.value])
-      styleObject.href = styles[e.target.value]
+      console.log(styles[e.target.value]);
+      styleObject.href = styles[e.target.value];
     }
   }
-})
-
+});
