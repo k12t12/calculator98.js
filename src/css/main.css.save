@@ -2,8 +2,6 @@ body {
     margin-left: 44px;
 }
 
-
-
 .background {
   position: fixed;
   top: 0;
@@ -15,7 +13,6 @@ body {
 }
 
 .app {
-width:10px;
     display: grid;
   place-items: center;
   margin-top: 8%;
@@ -57,29 +54,8 @@ button {
     height: 60px;
 }
 
-
-
-
-
 .options {
     margin-left: 800px;
     margin-top: -1000px;
     width: 300px;
-        
 }
-
-@media (min-width: 600px) and (max-width: 900px) {
-.app {
-background-color: black;
-place-items: stretch;
-margin-left: 0%
-}
-
-.options {
-
-margin-left: 500px;
-height: 150px;
-margin-top:-300px
-}
-} 
-
