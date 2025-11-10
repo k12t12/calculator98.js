@@ -26,10 +26,10 @@ function addToInput(symbol) {
     input.innerHTML = "";
   }
   if (
-    (".1234567890".indexOf(symbol) !== -1 &&
+    ("123456789".indexOf(symbol) !== -1 &&
       input.innerHTML[input.innerHTML.length - 1] === "0" &&
       "+-/*".indexOf(input.innerHTML[input.innerHTML.length - 2]) !== -1) ||
-    (".1234567890".indexOf(symbol) !== -1 &&
+    ("123456789".indexOf(symbol) !== -1 &&
       input.innerHTML.length == 1 &&
       input.innerHTML[input.innerHTML.length - 1] === "0")
   ) {

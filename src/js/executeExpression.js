@@ -72,7 +72,7 @@ function executeSimpleExpression(input) {
     }
   }
 
-  return numbers[0];
+  return parseFloat(parseFloat(numbers[0]).toFixed(10));
 }
 
 function executeComplexExpression(input) {
@@ -116,7 +116,7 @@ function executeComplexExpression(input) {
       );
     }
   }
-
+ 
   return executeSimpleExpression(input);
 }
 
